@@ -6,19 +6,31 @@
   <title>Create a Custom Postcard!</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
     crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <h1>Fill in your name and your friend's name to create your custom postcard!</h1>
   <form action="/postcard" method="post">
     <label for="sender">Sender's Name</label>
-    <input id="sender" name="sender" type="text">
+    <input id="sender" name="sender" type="text" class="form-control">
     <label for="recipient">Recipient's Name</label>
-    <input id="recipient" name="recipient" type="text">
+    <input id="recipient" name="recipient" type="text" class="form-control">
     <label for="location">Vacation Location</label>
-    <input type="text" name="location" id="location">
-    <label for="souvenier">Souveniers</label>
-    <input type="text" name="souvenier" id="souvenier">
+    <input type="text" name="location" id="location" class="form-control">
+    <label for="add-item">Would You Like To Add An Item To Bring Back?</label>
+    <button id="add-item" class="btn btn-success" type="button">Add Item</button>
+    <div id="souveniers-group">
+      <label for="souvenier">Souveniers</label>
+      <script>
+        let id = 0;
+        $("#add-item").click(function (event) {
+          event.preventDefault();
+          id++;
+          $("#souveniers-group").append(`<input type="text" name="souvenier${id}" id="${id}" class="form-control mb-3">`);
+        });
+      </script>
+    </div>
     <button type="submit" class="btn btn-primary">Send</button>
   </form>
 </body>
