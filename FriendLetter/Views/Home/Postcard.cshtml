@@ -17,13 +17,12 @@
   <p>But I like programming a lot, so I've got that going for me. </p>
   <p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>
   @{
-    @* if (Model.Souvenier.GetType() == typeof(string) && Model.Souvenier.GetType() != null) *@
-    string str = Model.Souvenier;
-    if (!string.IsNullOrEmpty(str))
+    string str = Model.Souvenier1;
+    if (string.IsNullOrEmpty(str))
     {
       <p>Here are some items that I will bring back with me:</p>
       <ul>
-        <li>@Model.Souvenier</li>
+        <li>@str</li>
       </ul>
     }
     else
@@ -31,7 +30,6 @@
       <p>I will not bring you anything back you greedy butt.</p>
     }
   }
-
   <p>Cheers,</p>
   <p>Travel Enthusiast @Model.Sender</p>
 </body>

@@ -17,7 +17,7 @@
     <label for="recipient">Recipient's Name</label>
     <input id="recipient" name="recipient" type="text" class="form-control">
     <label for="location">Vacation Location</label>
-    <input type="text" name="location" id="location" class="form-control">
+    <input type="text" name="location" id="location" class="form-control mb-3">
     <label for="add-item">Would You Like To Add An Item To Bring Back?</label>
     <button id="add-item" class="btn btn-success" type="button">Add Item</button>
     <div id="souveniers-group">
@@ -27,7 +27,7 @@
         $("#add-item").click(function (event) {
           event.preventDefault();
           id++;
-          $("#souveniers-group").append(`<input type="text" name="souvenier${id}" id="${id}" class="form-control mb-3">`);
+          $("#souveniers-group").append(`<input type="text" name="souvenier${id}" id="souvenier${id}" class="form-control mb-3">`);
         });
       </script>
     </div>
